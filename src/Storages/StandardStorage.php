@@ -2,7 +2,7 @@
 
 namespace Techart\ImageService\Storages;
 
-use ImageService\Contracts\StorageContract;
+use Techart\ImageService\Contracts\StorageContract;
 
 class StandardStorage implements StorageContract
 {

@@ -2,7 +2,7 @@
 
 namespace Techart\ImageService\Storages;
 
-use ImageService\Contracts\StorageContract;
+use Techart\ImageService\Contracts\StorageContract;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 

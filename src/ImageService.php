@@ -3,8 +3,8 @@
 namespace Techart\ImageService;
 
 use Exception;
-use ImageService\Contracts\ManagerContract;
-use ImageService\Contracts\StorageContract;
+use Techart\ImageService\Contracts\ManagerContract;
+use Techart\ImageService\Contracts\StorageContract;
 use InvalidArgumentException;
 
 class ImageService
@@ -259,7 +259,7 @@ class ImageService
 			}
 
 			if ($this->needConvert) {
-				$this->manager->convertImage($this->params['format']);
+				$this->manager->convertImage($this->params['format'], $this->params['quality']);
 			}
 
 			$this->manager->saveImage($this->storage->path($this->newPath));

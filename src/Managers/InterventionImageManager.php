@@ -2,7 +2,7 @@
 
 namespace Techart\ImageService\Managers;
 
-use ImageService\Contracts\ManagerContract;
+use Techart\ImageService\Contracts\ManagerContract;
 use Intervention\Image\AbstractEncoder;
 use Intervention\Image\Image;
 use Intervention\Image\ImageManager;

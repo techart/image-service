@@ -4,7 +4,7 @@ namespace Techart\ImageService\Managers;
 
 use Gumlet\ImageResize;
 use Gumlet\ImageResizeException;
-use ImageService\Contracts\ManagerContract;
+use Techart\ImageService\Contracts\ManagerContract;
 use InvalidArgumentException;
 
 class GumletImageResizeManager implements ManagerContract
