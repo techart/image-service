@@ -387,6 +387,7 @@ class ImageService
 	{
 		if (isset($this->params['resize'])) {
 			$this->validateSize();
+            $this->needResize = true;
 		} else {
 			$this->needResize = false;
 		}

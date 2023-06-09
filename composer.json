@@ -1,6 +1,6 @@
 {
     "name": "techart/image-service",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Provider to libraries for working with images",
     "license": "Apache-2.0",
     "authors": [

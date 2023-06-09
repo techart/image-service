@@ -19,13 +19,20 @@ class GumletImageResizeManager implements ManagerContract
 
 	private int|null $format = null;
 
-	/**
+    private bool $gamma = false;
+
+    public function __construct($gamma = false)
+    {
+        $this->gamma = $gamma;
+    }
+
+    /**
 	 * @throws ImageResizeException
 	 */
 	public function makeImage(string $path): void
 	{
 		$this->image = new ImageResize($path);
-        $this->image->gamma(true);
+        $this->image->gamma($this->gamma);
 	}
 
 	public function resizeImage(string $method, int $with, int $height): void
