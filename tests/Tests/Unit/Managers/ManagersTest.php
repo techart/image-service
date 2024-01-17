@@ -54,7 +54,7 @@ class ManagersTest extends TestCase
 	}
 
 	#[DataProvider('managersMap')]
-	public function test_r_convert_gif(ManagerContract $managerClass, array $paths)
+	public function test_manager_convert_gif(ManagerContract $managerClass, array $paths)
 	{
 		$manager = new $managerClass();
 		$manager->makeImage($paths['path']);
@@ -67,7 +67,7 @@ class ManagersTest extends TestCase
 	}
 
 	#[DataProvider('managersMap')]
-	public function test_r_convert_png(ManagerContract $managerClass, array $paths)
+	public function test_manager_convert_png(ManagerContract $managerClass, array $paths)
 	{
 		$manager = new $managerClass();
 		$manager->makeImage($paths['path']);
@@ -80,7 +80,7 @@ class ManagersTest extends TestCase
 	}
 
 	#[DataProvider('managersMap')]
-	public function test_r_convert_jpeg(ManagerContract $managerClass, array $paths)
+	public function test_manager_convert_jpeg(ManagerContract $managerClass, array $paths)
 	{
 		$manager = new $managerClass();
 		$manager->makeImage($paths['path']);
