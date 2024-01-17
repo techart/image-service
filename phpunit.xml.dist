@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Feature">
+            <directory>tests/Tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+        <exclude>
+            <directory>src/Contracts</directory>
+            <directory>src/Exceptions</directory>
+            <file>src/Storages/LaravelStorage.php</file>
+        </exclude>
+    </source>
+    <extensions>
+        <bootstrap class="Tests\Extensions\MainExtension"/>
+    </extensions>
+</phpunit>

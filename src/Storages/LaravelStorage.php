@@ -51,4 +51,23 @@ class LaravelStorage implements StorageContract
     {
         $this->storage->makeDirectory($path);
     }
+
+	public function imageInfo(string $path): array
+	{
+		$params = getimagesize($this->path($path));
+
+		return array_merge(
+			pathinfo(str_replace('storage/', '', $path)),
+			[
+				'real_path' => $this->path($path),
+				'path' => $path,
+				'mime' => $params['mime'],
+				'size' => [
+					'w' => $params[0],
+					'h' => $params[1],
+					'string' => $params[3]
+				]
+			]
+		);
+	}
 }

@@ -53,4 +53,6 @@ interface StorageContract
 	 * @return void
 	 */
 	public function makeDirectory(string $path): void;
+
+	public function imageInfo(string $path): array;
 }

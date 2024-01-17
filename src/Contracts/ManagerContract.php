@@ -18,18 +18,20 @@ interface ManagerContract
 	 * @param string $method
 	 * @param int $with
 	 * @param int $height
+	 * @param array $params
 	 * @return void
 	 */
-	public function resizeImage(string $method, int $with, int $height): void;
+	public function resizeImage(string $method, int $with, int $height, array $params = []): void;
 
 	/**
 	 * Меняет формат изображения
 	 *
 	 * @param string $format
 	 * @param int $quality
+	 * @param array $params
 	 * @return void
 	 */
-	public function convertImage(string $format, int $quality): void;
+	public function convertImage(string $format, int $quality, array $params = []): void;
 
 	/**
 	 * Устанавливает качество модифицированного изображения

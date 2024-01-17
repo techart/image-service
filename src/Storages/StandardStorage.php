@@ -26,6 +26,10 @@ class StandardStorage implements StorageContract
 
 	public function url(string $path): string
 	{
+		if ($this->pathHasDocRoot($path)) {
+			return $this->withoutDocRoot($path);
+		}
+
 		return $path;
 	}
 
@@ -54,9 +58,7 @@ class StandardStorage implements StorageContract
 			closedir($handle);
 		}
 
-		return array_map(function ($item) {
-			return $this->withoutDocRoot($item);
-		}, $files);
+		return array_map([$this, 'withoutDocRoot'], $files);
 	}
 
 	public function delete(string $path, $withDocRoot = true): void
@@ -77,6 +79,25 @@ class StandardStorage implements StorageContract
 	{
 		$dir = $this->withDocRoot($path);
 		mkdir($dir, 0755, true);
+	}
+
+	public function imageInfo(string $path): array
+	{
+		$params = getimagesize($this->path($path));
+
+		return array_merge(
+			pathinfo($path),
+			[
+				'real_path' => $this->path($path),
+				'path' => $path,
+				'mime' => $params['mime'],
+				'size' => [
+					'w' => $params[0],
+					'h' => $params[1],
+					'string' => $params[3]
+				]
+			]
+		);
 	}
 
 	protected function withDocRoot(string $path): string

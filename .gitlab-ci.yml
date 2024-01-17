@@ -3,3 +3,12 @@ variables:
 include:
   - project: "libs/cicd-includes"
     file: "/templates/.gitlab-ci-packagist.yml"
+testing:
+  stage: test
+  tags:
+    - ssh
+    - php82
+  script:
+    - |
+      pwd
+      composer install && composer test
