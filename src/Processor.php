@@ -71,7 +71,7 @@ readonly class Processor
 		$this->makeDir();
 		$this->makeImage();
 
-		return $this->images();
+		return $this->paths();
 	}
 
 	protected function makeDir(): void
@@ -114,7 +114,7 @@ readonly class Processor
 		);
 	}
 
-	protected function images(): Paths
+	protected function paths(): Paths
 	{
 		$new = $this->storage->imageInfo($this->newPath);
 		$new['url'] = $this->storage->url($this->newPath);
