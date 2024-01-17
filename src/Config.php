@@ -134,11 +134,6 @@ class Config
 
 	protected function setConvert(): void
 	{
-		if (!isset($this->format)) {
-			$this->convert = false;
-			return;
-		}
-
 		if (strtolower($this->imageParams['extension'] ?: '') === strtolower($this->format ?: '')) {
 			$this->convert = false;
 			return;
@@ -186,11 +181,6 @@ class Config
 
 	protected function validateQuality(): void
 	{
-		if (!isset($this->quality)) {
-			$this->quality = $this->config['quality'] ?? 95;
-			return;
-		}
-
 		if ($this->quality < 1) {
 			$this->quality = 1;
 			return;
@@ -206,10 +196,6 @@ class Config
 	 */
 	protected function validateMethod(): void
 	{
-		if (!$this->method) {
-			$this->method = 'resize';
-		}
-
 		if (!in_array($this->method, $this->config['methods'])) {
 			throw new ImageConfigValidateException('The method for editing the image is not allowed');
 		}

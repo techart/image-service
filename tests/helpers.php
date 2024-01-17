@@ -1,7 +1,7 @@
 <?php
 function removeDivRecursive(string $dir): void
 {
-	if (!file_exists($dir)) {
+	if (!$dir || !file_exists($dir)) {
 		return;
 	}
 
