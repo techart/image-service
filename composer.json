@@ -1,6 +1,6 @@
 {
   "name": "techart/image-service",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Provider to libraries for working with images",
   "license": "Apache-2.0",
   "authors": [
@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "intervention/image": "^3.2",
+    "intervention/image": "^2.7",
     "gumlet/php-image-resize": "^2.0",
     "illuminate/support": ">=8",
     "illuminate/contracts": ">=8"

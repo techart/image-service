@@ -18,7 +18,10 @@ class ManagersTest extends TestCase
 		$manager->makeImage($paths['path']);
 
 		mkdir($paths['new_dir']);
-		$this->assertFalse(file_exists($paths['new_path']));
+
+		if (file_exists($paths['new_path'])) {
+			unlink($paths['new_path']);
+		}
 
 		$manager->saveImage($paths['new_path']);
 		$this->assertTrue(file_exists($paths['new_path']));
@@ -59,10 +62,10 @@ class ManagersTest extends TestCase
 		$manager = new $managerClass();
 		$manager->makeImage($paths['path']);
 		$manager->convertImage('gif');
-		$manager->saveImage($paths['new_path_webp']);
+		$manager->saveImage($paths['new_path_gif']);
 
-		$this->assertTrue(file_exists($paths['new_path_webp']));
-		$type = exif_imagetype($paths['new_path_webp']);
+		$this->assertTrue(file_exists($paths['new_path_gif']));
+		$type = exif_imagetype($paths['new_path_gif']);
 		$this->assertEquals(IMAGETYPE_GIF, $type);
 	}
 
@@ -72,10 +75,10 @@ class ManagersTest extends TestCase
 		$manager = new $managerClass();
 		$manager->makeImage($paths['path']);
 		$manager->convertImage('png');
-		$manager->saveImage($paths['new_path_webp']);
+		$manager->saveImage($paths['new_path_png']);
 
-		$this->assertTrue(file_exists($paths['new_path_webp']));
-		$type = exif_imagetype($paths['new_path_webp']);
+		$this->assertTrue(file_exists($paths['new_path_png']));
+		$type = exif_imagetype($paths['new_path_png']);
 		$this->assertEquals(IMAGETYPE_PNG, $type);
 	}
 
@@ -85,10 +88,10 @@ class ManagersTest extends TestCase
 		$manager = new $managerClass();
 		$manager->makeImage($paths['path']);
 		$manager->convertImage('jpeg');
-		$manager->saveImage($paths['new_path_webp']);
+		$manager->saveImage($paths['new_path_jpeg']);
 
-		$this->assertTrue(file_exists($paths['new_path_webp']));
-		$type = exif_imagetype($paths['new_path_webp']);
+		$this->assertTrue(file_exists($paths['new_path_jpeg']));
+		$type = exif_imagetype($paths['new_path_jpeg']);
 		$this->assertEquals(IMAGETYPE_JPEG, $type);
 	}
 
@@ -136,12 +139,18 @@ class ManagersTest extends TestCase
 				'new_dir' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/intervention/save/',
 				'new_path' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/intervention/save/test.jpg',
 				'new_path_webp' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/intervention/save/test.webp',
+				'new_path_gif' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/intervention/save/test.gif',
+				'new_path_jpeg' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/intervention/save/test.jpeg',
+				'new_path_png' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/intervention/save/test.png',
 			]],
 			[new GumletImageResizeManager(),[
 				'path' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/test.jpg',
 				'new_dir' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/save/',
 				'new_path' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/save/test.jpg',
 				'new_path_webp' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/save/test.webp',
+				'new_path_gif' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/save/test.gif',
+				'new_path_png' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/save/test.png',
+				'new_path_jpeg' => $_SERVER['DOCUMENT_ROOT'] . '/tests/Fixtures/gumlet/save/test.jpeg',
 			]]
 		];
 	}
