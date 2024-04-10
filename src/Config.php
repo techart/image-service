@@ -5,7 +5,7 @@ namespace Techart\ImageService;
 use InvalidArgumentException;
 use Techart\ImageService\Exceptions\ImageConfigValidateException;
 
-class Config
+final class Config
 {
 	protected int $quality;
 	protected bool $convert;
@@ -117,7 +117,7 @@ class Config
 	 */
 	public function setFormat(string $format): void
 	{
-		$this->format = $format;
+		$this->format = strtolower($format);
 		$this->validateFormat();
 		$this->setConvert();
 	}

@@ -2,7 +2,7 @@
 
 namespace Techart\ImageService;
 
-readonly class Paths
+final readonly class Paths
 {
 	public function __construct(
 		protected array $new,

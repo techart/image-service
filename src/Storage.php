@@ -4,7 +4,7 @@ namespace Techart\ImageService;
 
 use Techart\ImageService\Contracts\StorageContract;
 
-readonly class Storage
+final readonly class Storage
 {
 	public function __construct(
 		private array $imageParams,
